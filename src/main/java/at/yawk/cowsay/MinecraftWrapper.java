@@ -2,7 +2,6 @@ package at.yawk.cowsay;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UncheckedIOException;
 import lombok.Getter;
 
 /**
@@ -24,7 +23,7 @@ public class MinecraftWrapper extends Wrapper {
         try {
             instance.load();
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new RuntimeException(e);
         }
     }
 
