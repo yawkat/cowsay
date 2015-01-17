@@ -1,0 +1,4 @@
+name: Cowsay
+author: yawkat
+version: 1.0-SNAPSHOT
+main: at.yawk.cowsay.CowsayBungee

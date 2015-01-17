@@ -1,0 +1,20 @@
+name: Cowsay
+author: yawkat
+version: 1.0-SNAPSHOT
+main: at.yawk.cowsay.CowsayBukkit
+commands:
+   cowsay:
+      description: Speaking cow.
+      usage: /cowsay <message>
+      permission: cowsay.cowsay
+   cowthink:
+      description: Thinking cow.
+      usage: /cowthink <message>
+      permission: cowsay.cowthink
+permissions:
+   cowsay.cowsay:
+      description: Gives access to /cowsay
+      default: true
+   cowsay.cowthink:
+      description: Gives access to /cowthink
+      default: true
