@@ -1,6 +1,10 @@
 package at.yawk.cowsay;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
 import net.md_5.bungee.api.CommandSender;
+import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.PostLoginEvent;
 import net.md_5.bungee.api.plugin.Command;
 import net.md_5.bungee.api.plugin.Listener;
@@ -11,8 +15,8 @@ import net.md_5.bungee.event.EventHandler;
 /**
  * @author yawkat
  */
-public class CowsayBungee extends Plugin implements Listener {
-    private final CowsayCommandHandler commandHandler = new CowsayCommandHandler();
+public class CowsayBungee extends Plugin implements Listener, CowsayPlatform {
+    private final CowsayCommandHandler commandHandler = new CowsayCommandHandler(this);
 
     @Override
     public void onEnable() {
@@ -62,6 +66,22 @@ public class CowsayBungee extends Plugin implements Listener {
                 return commandSender instanceof ConsoleCommandSender ?
                         40 : MinecraftWrapper.DEFAULT_CHAT_WIDTH;
             }
+
+            @Override
+            public boolean hasPermission(String permission) {
+                return commandSender.hasPermission(permission);
+            }
         };
+    }
+
+    @Override
+    public List<CommandSenderWrapper> getSenders(Pattern namePattern) {
+        List<CommandSenderWrapper> wrappers = new ArrayList<>();
+        for (ProxiedPlayer player : getProxy().getPlayers()) {
+            if (namePattern.matcher(player.getName()).matches()) {
+                wrappers.add(wrap(player));
+            }
+        }
+        return wrappers;
     }
 }

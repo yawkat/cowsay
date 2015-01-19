@@ -19,15 +19,22 @@ public abstract class Wrapper {
 
     protected abstract boolean isWrappableAfter(String s, int i);
 
+    protected String collectNextLinePrefix(String currentLine) {
+        return "";
+    }
+
     public List<String> wrap(String s, int maxWidth) {
         List<String> strings = new ArrayList<>();
+        String prefix = "";
         while (!s.isEmpty()) {
+            s = prefix + s;
             String line = wrapOne(s, maxWidth);
             s = s.substring(line.length());
             if (line.charAt(line.length() - 1) == ' ') {
                 line = line.substring(0, line.length() - 1);
             }
             strings.add(line);
+            prefix = collectNextLinePrefix(line);
         }
         return strings;
     }

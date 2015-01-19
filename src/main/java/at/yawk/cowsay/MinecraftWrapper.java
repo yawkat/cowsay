@@ -13,7 +13,7 @@ public class MinecraftWrapper extends Wrapper {
 
     // don't think there are others that aren't 0-width :(
     private static final String WHITESPACE = " ";
-    private static final String COLORS = "0123456789abcdefklmnor";
+    static final String COLORS = "0123456789abcdefklmnor";
 
     @Getter private static final MinecraftWrapper instance = new MinecraftWrapper();
 
@@ -39,6 +39,23 @@ public class MinecraftWrapper extends Wrapper {
     @Override
     public byte getWidth(char c) {
         return widths[c];
+    }
+
+    @Override
+    protected String collectNextLinePrefix(String currentLine) {
+        StringBuilder prefix = new StringBuilder();
+        for (int i = 0; i < currentLine.length() - 1; i++) {
+            if (currentLine.charAt(i) == '§') {
+                char n = currentLine.charAt(i + 1);
+                int j = COLORS.indexOf(n);
+                if (j != -1) {
+                    if (j < 16 || j == 21) { prefix.setLength(0); }
+                    prefix.append('§').append(n);
+                    i++;
+                }
+            }
+        }
+        return prefix.toString();
     }
 
     @Override

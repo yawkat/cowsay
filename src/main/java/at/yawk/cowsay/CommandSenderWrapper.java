@@ -9,4 +9,6 @@ public interface CommandSenderWrapper {
     Wrapper getWrapper();
 
     int getChatWidth();
+
+    boolean hasPermission(String permission);
 }

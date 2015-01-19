@@ -65,15 +65,15 @@ public class Cowsay {
     private char postLineChar;
     private String[] footer;
 
-    public List<String> cowsayBase(String s, Wrapper wrapper, int maxWidth) {
-        String prefix0 = wrapper.monospace(oneLinePrefix);
-        String prefix1 = wrapper.monospace(firstLinePrefix);
-        String prefix2 = wrapper.monospace(linePrefix);
-        String prefix3 = wrapper.monospace(lastLinePrefix);
-        String suffix0 = wrapper.monospace(oneLineSuffix);
-        String suffix1 = wrapper.monospace(firstLineSuffix);
-        String suffix2 = wrapper.monospace(lineSuffix);
-        String suffix3 = wrapper.monospace(lastLineSuffix);
+    public List<String> cowsayBase(String s, String color, Wrapper wrapper, int maxWidth) {
+        String prefix0 = color + wrapper.monospace(oneLinePrefix);
+        String prefix1 = color + wrapper.monospace(firstLinePrefix);
+        String prefix2 = color + wrapper.monospace(linePrefix);
+        String prefix3 = color + wrapper.monospace(lastLinePrefix);
+        String suffix0 = color + wrapper.monospace(oneLineSuffix);
+        String suffix1 = color + wrapper.monospace(firstLineSuffix);
+        String suffix2 = color + wrapper.monospace(lineSuffix);
+        String suffix3 = color + wrapper.monospace(lastLineSuffix);
 
         int maxPrefixWidth = Math.max(
                 Math.max(wrapper.getWidth(prefix0),
@@ -98,7 +98,11 @@ public class Cowsay {
 
         List<String> strings = new ArrayList<>();
 
-        strings.add(buildBubbleLine(wrapper, maxLineWidth, maxPrefixWidth, preLineChar));
+        for (String line : header) {
+            strings.add(color + wrapper.monospace(line));
+        }
+
+        strings.add(color + buildBubbleLine(wrapper, maxLineWidth, maxPrefixWidth, preLineChar));
         for (int i = 0; i < wrapped.size(); i++) {
             String line = wrapped.get(i);
             int rightPad = maxLineWidth - wrapper.getWidth(line);
@@ -121,10 +125,10 @@ public class Cowsay {
             line = prefix + line + wrapper.getWhitespace(rightPad) + suffix;
             strings.add(line);
         }
-        strings.add(buildBubbleLine(wrapper, maxLineWidth, maxPrefixWidth, postLineChar));
+        strings.add(color + buildBubbleLine(wrapper, maxLineWidth, maxPrefixWidth, postLineChar));
 
         for (String line : footer) {
-            strings.add(wrapper.monospace(line));
+            strings.add(color + wrapper.monospace(line));
         }
         return strings;
     }
