@@ -5,7 +5,7 @@
     <groupId>at.yawk.cowsay</groupId>
     <artifactId>cowsay-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
 
     <modules>
         <module>plugin</module>
@@ -38,7 +38,7 @@
         <url>https://github.com/yawkat/cowsay</url>
         <connection>scm:git:git://github.com/yawkat/cowsay.git</connection>
         <developerConnection>scm:git:ssh://github.com/yawkat/cowsay.git</developerConnection>
-      <tag>cowsay-parent-1.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <distributionManagement>
