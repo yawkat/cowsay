@@ -1,4 +1,4 @@
-Cowsay
+Cowsay [![Maven Central](https://img.shields.io/maven-central/v/at.yawk.cowsay/cowsay.svg?maxAge=2592000)]()
 ======
 
 Cowsay plugin for bukkit and bungee.
