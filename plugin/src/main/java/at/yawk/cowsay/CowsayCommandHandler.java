@@ -52,7 +52,7 @@ public class CowsayCommandHandler {
             }
         }
 
-        List<String> parts = cowsay.cowsayBase(text, color, sender.getWrapper(), sender.getChatWidth());
+        List<String> parts = cowsay.buildCowsayImage(text, color, sender.getWrapper(), sender.getChatWidth());
 
         Collection<CommandSenderWrapper> recipients;
         if (ca.getOptions().containsKey("-p")) {

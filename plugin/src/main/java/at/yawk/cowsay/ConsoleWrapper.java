@@ -8,13 +8,8 @@ import lombok.Getter;
  *
  * @author yawkat
  */
-public final class ConsoleWrapper extends Wrapper {
+public final class ConsoleWrapper extends DefaultWrapper {
     @Getter private static final Wrapper instance = new ConsoleWrapper();
-
-    @Override
-    public byte getWidth(char c) {
-        return 1;
-    }
 
     @Override
     protected String collectNextLinePrefix(String currentLine) {
@@ -37,17 +32,5 @@ public final class ConsoleWrapper extends Wrapper {
     @Override
     protected boolean isWrappableAfter(String s, int i) {
         return MinecraftWrapper.getInstance().isWrappableAfter(s, i);
-    }
-
-    @Override
-    public String monospace(CharSequence seq) {
-        return seq.toString();
-    }
-
-    @Override
-    public String getWhitespace(int width) {
-        char[] chars = new char[width];
-        Arrays.fill(chars, ' ');
-        return new String(chars);
     }
 }
