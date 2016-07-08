@@ -3,8 +3,19 @@ Cowsay
 
 Cowsay plugin for bukkit and bungee.
 
-Usage
------
+[MPL 2.0 License](https://www.mozilla.org/en-US/MPL/2.0/).
+
+API
+---
+
+```
+Cowsay.COWSAY.buildCowsayImage("abc", 44);
+```
+
+Plugin
+------
+
+### Usage
 
 `/cowsay <message>`
 
@@ -21,15 +32,13 @@ Both commands accept arguments:
 
 If you end the parameter list with an argumentless parameter like `-i` or `-l` you either have to add an argument that will subsequently ignored or you have to use `--`.
 
-Screenshots
------------
+### Screenshots
 
 ![Console](http://s.yawk.at/v4s9.png)
 
 ![In-Game](http://s.yawk.at/Pc9n.png)
 
-Permissions
------------
+### Permissions
 
 - `cowsay.cowsay`: Give access to `/cowsay`
 - `cowsay.cowthink`: Give access to `/cowthink`
