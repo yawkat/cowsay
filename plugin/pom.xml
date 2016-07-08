@@ -20,6 +20,25 @@
         </license>
     </licenses>
 
+    <project>
+        <name>${project.groupId}:${project.artifactId}</name>
+        <description>API for generating cowsay messages.</description>
+        <url>https://github.com/yawkat/cowsay</url>
+    </project>
+
+    <developers>
+        <developer>
+            <name>Jonas Konrad</name>
+            <url>http://yawk.at</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/yawkat/cowsay</url>
+        <connection>scm:git:git://github.com/yawkat/cowsay.git</connection>
+        <developerConnection>scm:git:ssh://github.com/yawkat/cowsay.git</developerConnection>
+    </scm>
+
     <repositories>
         <repository>
             <id>yawkat</id>
