@@ -13,30 +13,6 @@
 
     <artifactId>cowsay-plugin</artifactId>
 
-    <licenses>
-        <license>
-            <name>MPL 2.0</name>
-            <url>https://www.mozilla.org/en-US/MPL/2.0/</url>
-        </license>
-    </licenses>
-
-    <name>${project.groupId}:${project.artifactId}</name>
-    <description>API for generating cowsay messages.</description>
-    <url>https://github.com/yawkat/cowsay</url>
-
-    <developers>
-        <developer>
-            <name>Jonas Konrad</name>
-            <url>http://yawk.at</url>
-        </developer>
-    </developers>
-
-    <scm>
-        <url>https://github.com/yawkat/cowsay</url>
-        <connection>scm:git:git://github.com/yawkat/cowsay.git</connection>
-        <developerConnection>scm:git:ssh://github.com/yawkat/cowsay.git</developerConnection>
-    </scm>
-
     <repositories>
         <repository>
             <id>yawkat</id>
