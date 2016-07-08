@@ -20,11 +20,9 @@
         </license>
     </licenses>
 
-    <project>
-        <name>${project.groupId}:${project.artifactId}</name>
-        <description>API for generating cowsay messages.</description>
-        <url>https://github.com/yawkat/cowsay</url>
-    </project>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>API for generating cowsay messages.</description>
+    <url>https://github.com/yawkat/cowsay</url>
 
     <developers>
         <developer>
