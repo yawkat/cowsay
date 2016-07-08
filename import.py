@@ -69,5 +69,5 @@ if scan_whitespace:
 
 print(len(sizes))
 
-with open("src/main/resources/char_sizes", "w") as f:
+with open("plugin/src/main/resources/char_sizes", "w") as f:
     f.buffer.write(sizes)
